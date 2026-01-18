@@ -195,3 +195,152 @@ node test3_insurance_application.js
 # Test 4: Agent Approval Workflow
 node test4_agent_approval.js
 ```
+
+Test recordings and screenshots are saved in `test_recordings/`.
+
+## 🔐 Security
+
+### Environment Variables
+- ✅ `.env` file is gitignored
+- ✅ Use strong JWT secrets in production
+- ✅ Change default MongoDB URI for production
+
+### Demo Credentials
+- ⚠️ Demo accounts have weak passwords (`password123`)
+- ⚠️ **NEVER** use demo credentials in production
+- ✅ Always create new accounts with strong passwords
+
+### File Uploads
+- ✅ Files are validated by Multer
+- ✅ Uploads stored in `backend/uploads/` (gitignored)
+- ⚠️ Consider adding virus scanning in production
+
+## 📚 API Documentation
+
+### Authentication Endpoints
+
+#### Register User
+```http
+POST /api/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "SecurePass123!",
+  "role": "farmer",
+  "phone": "+91 9876543210",
+  "address": "Village, District, State"
+}
+```
+
+#### Login
+```http
+POST /api/auth/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "SecurePass123!"
+}
+```
+
+### Loan Endpoints
+
+#### Submit Loan Application
+```http
+POST /api/loans/submit
+Authorization: Bearer <token>
+Content-Type: multipart/form-data
+
+[FormData with loan details and documents]
+```
+
+#### Get User's Loans
+```http
+GET /api/loans/my-loans
+Authorization: Bearer <token>
+```
+
+### Insurance Endpoints
+
+#### Submit Insurance Application
+```http
+POST /api/insurance/submit
+Authorization: Bearer <token>
+Content-Type: multipart/form-data
+
+[FormData with insurance details and documents]
+```
+
+## 🚢 Deployment
+
+### Environment Setup
+1. Set `NODE_ENV=production` in `.env`
+2. Use a production MongoDB instance (MongoDB Atlas recommended)
+3. Generate a strong JWT secret
+4. Configure CORS for your production domain
+5. Set up SSL/TLS certificates
+
+### Recommended Hosting
+- **Backend:** Heroku, DigitalOcean, AWS EC2
+- **Frontend:** Netlify, Vercel, GitHub Pages
+- **Database:** MongoDB Atlas
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the ISC License.
+
+## 👨‍💻 Development
+
+### Available Scripts
+
+```bash
+npm start          # Start backend server
+npm run dev        # Start backend with nodemon (auto-reload)
+npm run seed       # Seed demo users
+npm run check      # Check environment setup
+npm run diagnose   # Diagnose errors
+```
+
+### Common Issues
+
+**MongoDB Connection Failed:**
+- Ensure MongoDB is running
+- Check `MONGODB_URI` in `.env`
+- Verify network connectivity
+
+**Port Already in Use:**
+- Change `PORT` in `.env`
+- Kill process using port 3000: `npx kill-port 3000`
+
+**Frontend Not Loading:**
+- Ensure you're using a web server (not file://)
+- Check frontend is served on port 5500
+- Verify CORS settings in backend
+
+## 📧 Support
+
+For issues and questions:
+- Create an issue on GitHub
+- Contact: [your-email@example.com]
+
+## 🙏 Acknowledgments
+
+- Built for agricultural financial inclusion
+- Designed to simplify farmer access to credit and insurance
+- Inspired by India's digital agriculture initiatives
+
+---
+
+**Made with ❤️ for farmers**
