@@ -1,0 +1,20 @@
+{
+    "name": "agri-fintech-frontend",
+    "version": "1.0.0",
+    "description": "Agri Fintech & Insurance Platform - Frontend",
+    "scripts": {
+        "dev": "live-server --port=5500 --open=index.html",
+        "start": "live-server --port=5500 --open=index.html"
+    },
+    "keywords": [
+        "agri-fintech",
+        "insurance",
+        "farmers",
+        "frontend"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "live-server": "^1.2.2"
+    }
+}

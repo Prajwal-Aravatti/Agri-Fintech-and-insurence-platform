@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farmer Dashboard - Agri Fintech & Insurance">
+    <title>Farmer Dashboard - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard-farmer.css">
+    <link rel="stylesheet" href="css/sidebar-nav.css">
+</head>
+
+<body>
+    <!-- Sidebar Toggle -->
+    <div id="sidebarToggle" class="tooltip-container">
+        <span class="tooltip">Discover</span>
+        <span class="text">
+            <div class="borde-back">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" height="35" width="35" xmlns="http://www.w3.org/2000/svg" fill="white">
+                        <text x="50%" y="70%" font-size="20" text-anchor="middle" font-weight="bold"
+                            fill="white">₹</text>
+                    </svg>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav" id="sidebar">
+        <div class="nav-logo">
+            <img src="assets/images/logo.png" alt="Agri Fintech" onerror="this.style.display='none';">
+            <span>Agri Fintech</span>
+        </div>
+
+        <!--Weather Widget -->
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-info">
+                <span class="weather-temp">24°C</span>
+                <span class="weather-desc">Sunny</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link"><i class="icon-home"></i> Home</a></li>
+            <li><a href="dashboard-farmer.html" class="nav-link active"><i class="icon-grid"></i> Dashboard</a></li>
+            <li><a href="contact-us.html" class="nav-link"><i class="icon-mail"></i> Contact</a></li>
+
+            <!-- Section Navigation -->
+            <li class="nav-divider">Quick Navigation</li>
+            <li><a href="#dashboard-stats" class="nav-link nav-link-secondary"
+                    onclick="scrollToSection('dashboard-stats'); return false;">Dashboard Stats</a></li>
+            <li><a href="#quick-actions" class="nav-link nav-link-secondary"
+                    onclick="scrollToSection('quick-actions'); return false;">Quick Actions</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+        <!-- Dashboard Header with Background Image -->
+        <div class="dashboard-header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Farmer Dashboard</h1>
+                    <p id="user-name">Loading...</p>
+                </div>
+                <div class="user-info">
+                    <span id="user-role" class="badge badge-farmer">Farmer</span>
+                    <button id="logout-btn" class="btn btn-secondary btn-logout-farmer">
+                        <span class="btn-label">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Dashboard Stats -->
+            <section id="dashboard-stats" style="margin-bottom: 2rem;">
+                <!-- Stats will be loaded dynamically -->
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions" id="quick-actions">
+                <h2 style="margin-bottom: 1rem;">Quick Actions</h2>
+                <div class="tile-grid">
+                    <a href="#apply-loan" class="tile grass-bg" onclick="showLoanForm(); return false;">
+                        <img src="assets/images/loan-icon.png" alt="Apply Loan" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Apply Loan</div>
+                        <div class="tile-description">Check eligibility & apply</div>
+                    </a>
+                    <a href="#apply-insurance" class="tile grass-bg" onclick="showInsuranceForm(); return false;">
+                        <img src="assets/images/insurance-icon.png" alt="Apply Insurance" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Apply for Insurance</div>
+                        <div class="tile-description">Get crop coverage</div>
+                    </a>
+                    <a href="#file-claim" class="tile grass-bg" onclick="showClaimForm(); return false;">
+                        <img src="assets/images/claim-icon.png" alt="File Claim" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">File Claim</div>
+                        <div class="tile-description">Submit claim with photos</div>
+                    </a>
+                    <a href="#view-loans" class="tile grass-bg" onclick="showLoans(); return false;">
+                        <img src="assets/images/status-icon.png" alt="My Loans" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">My Loans</div>
+                        <div class="tile-description">View loan status</div>
+                    </a>
+                    <a href="#view-policies" class="tile grass-bg" onclick="showPoliciesFromAPI(); return false;">
+                        <img src="assets/images/insurance-icon.png" alt="My Policies" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">My Policies</div>
+                        <div class="tile-description">Insurance policies</div>
+                    </a>
+                    <a href="#view-claims" class="tile grass-bg" onclick="showClaims(); return false;">
+                        <img src="assets/images/claim-icon.png" alt="My Claims" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">My Claims</div>
+                        <div class="tile-description">Track claim status</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Dynamic Content Area -->
+            <section id="dynamic-content">
+                <!-- Recent Activities -->
+                <div id="recent-activities">
+                    <h2 style="margin-bottom: 1rem;">Recent Activities</h2>
+                    <!-- Activities will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Loan Application Form (Hidden by default) -->
+            <section id="loan-form-section" style="display: none;">
+                <div class="card">
+                    <h2>Apply for Loan</h2>
+
+                    <!-- Progress Indicator -->
+                    <div class="form-progress">
+                        <div class="progress-step active" data-step="1">
+                            <div class="progress-number">1</div>
+                            <div class="progress-label">Personal Details</div>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="progress-number">2</div>
+                            <div class="progress-label">Bank Details</div>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="progress-number">3</div>
+                            <div class="progress-label">Land & Income</div>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="progress-number">4</div>
+                            <div class="progress-label">Loan Details</div>
+                        </div>
+                    </div>
+
+                    <form id="loan-form" novalidate>
+                        <!-- Step 1: Personal Details -->
+                        <div class="form-step active" data-step="1">
+                            <h3 class="step-title">Personal Details</h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="middleName" class="form-label">Middle Name</label>
+                                    <input type="text" id="middleName" name="middleName" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="identityType" class="form-label">Identity Proof Type *</label>
+                                    <select id="identityType" name="identityType" class="form-select" required>
+                                        <option value="">Select identity proof</option>
+                                        <option value="aadhar">Aadhar Card</option>
+                                        <option value="pan">PAN Card</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="identityNumber" class="form-label">Identity Number *</label>
+                                    <input type="text" id="identityNumber" name="identityNumber" class="form-input"
+                                        placeholder="Enter Aadhar/PAN number" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Upload Photo *</label>
+                                <div class="file-upload" onclick="document.getElementById('farmer-photo').click()">
+                                    <div class="file-upload-icon">📷</div>
+                                    <p>Click to upload your photo</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG or PNG (max 2MB)</p>
+                                </div>
+                                <input type="file" id="farmer-photo" name="farmerPhoto" accept="image/*"
+                                    style="display: none;" required>
+                                <div id="photo-preview" class="file-preview"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Upload Identity Proof *</label>
+                                <div class="file-upload" onclick="document.getElementById('identity-proof').click()">
+                                    <div class="file-upload-icon">📄</div>
+                                    <p>Click to upload Aadhar/PAN card</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG, PNG or PDF (max 5MB)
+                                    </p>
+                                </div>
+                                <input type="file" id="identity-proof" name="identityProof" accept="image/*,.pdf"
+                                    style="display: none;" required>
+                                <div id="identity-preview" class="file-preview"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Bank Details -->
+                        <div class="form-step" data-step="2">
+                            <h3 class="step-title">Bank Details</h3>
+
+                            <div class="form-group">
+                                <label for="accountHolderName" class="form-label">Account Holder Name *</label>
+                                <input type="text" id="accountHolderName" name="accountHolderName" class="form-input"
+                                    required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bankName" class="form-label">Bank Name *</label>
+                                    <input type="text" id="bankName" name="bankName" class="form-input"
+                                        placeholder="e.g., State Bank of India" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="branchName" class="form-label">Branch Name *</label>
+                                    <input type="text" id="branchName" name="branchName" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="accountNumber" class="form-label">Account Number *</label>
+                                    <input type="text" id="accountNumber" name="accountNumber" class="form-input"
+                                        pattern="[0-9]{9,18}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmAccountNumber" class="form-label">Confirm Account Number
+                                        *</label>
+                                    <input type="text" id="confirmAccountNumber" name="confirmAccountNumber"
+                                        class="form-input" pattern="[0-9]{9,18}" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ifscCode" class="form-label">IFSC Code *</label>
+                                <input type="text" id="ifscCode" name="ifscCode" class="form-input"
+                                    placeholder="e.g., SBIN0001234" pattern="[A-Z]{4}0[A-Z0-9]{6}"
+                                    style="text-transform: uppercase;" required>
+                                <small style="color: var(--gray-medium);">11 characters (e.g., SBIN0001234)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="accountType" class="form-label">Account Type *</label>
+                                <select id="accountType" name="accountType" class="form-select" required>
+                                    <option value="">Select account type</option>
+                                    <option value="savings">Savings Account</option>
+                                    <option value="current">Current Account</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Land & Income Details -->
+                        <div class="form-step" data-step="3">
+                            <h3 class="step-title">Land & Income Details</h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="farmArea" class="form-label">Farm Area (acres) *</label>
+                                    <input type="number" id="farmArea" name="farmArea" class="form-input" required
+                                        min="0.5" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cropType" class="form-label">Primary Crop Type *</label>
+                                    <select id="cropType" name="cropType" class="form-select" required>
+                                        <option value="">Select crop</option>
+                                        <option value="wheat">Wheat</option>
+                                        <option value="rice">Rice</option>
+                                        <option value="corn">Corn</option>
+                                        <option value="cotton">Cotton</option>
+                                        <option value="sugarcane">Sugarcane</option>
+                                        <option value="vegetables">Vegetables</option>
+                                        <option value="fruits">Fruits</option>
+                                        <option value="pulses">Pulses</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="landLocation" class="form-label">Land Location/Address *</label>
+                                <textarea id="landLocation" name="landLocation" class="form-input" rows="2" required
+                                    placeholder="Village, Taluka, District"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Land Ownership Proof *</label>
+                                <div class="file-upload" onclick="document.getElementById('land-proof').click()">
+                                    <div class="file-upload-icon">📋</div>
+                                    <p>Upload land ownership document</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">
+                                        7/12 Extract, Property Papers, etc. (JPG, PNG or PDF, max 5MB)
+                                    </p>
+                                </div>
+                                <input type="file" id="land-proof" name="landProof" accept="image/*,.pdf"
+                                    style="display: none;" required>
+                                <div id="land-preview" class="file-preview"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Income Certificate *</label>
+                                <div class="file-upload" onclick="document.getElementById('income-cert').click()">
+                                    <div class="file-upload-icon">💰</div>
+                                    <p>Upload income certificate</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">
+                                        JPG, PNG or PDF (max 5MB)
+                                    </p>
+                                </div>
+                                <input type="file" id="income-cert" name="incomeCert" accept="image/*,.pdf"
+                                    style="display: none;" required>
+                                <div id="income-preview" class="file-preview"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="annualIncome" class="form-label">Annual Income (₹) *</label>
+                                <input type="number" id="annualIncome" name="annualIncome" class="form-input" min="0"
+                                    step="1000" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Loan Details -->
+                        <div class="form-step" data-step="4">
+                            <h3 class="step-title">Loan Details</h3>
+
+                            <div class="form-group">
+                                <label for="loanAmount" class="form-label">Loan Amount (₹) *</label>
+                                <input type="number" id="loanAmount" name="loanAmount" class="form-input" required
+                                    min="10000" step="1000">
+                                <small style="color: var(--gray-medium);">Minimum: ₹10,000</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="purpose" class="form-label">Purpose of Loan *</label>
+                                <select id="purpose" name="purpose" class="form-select" required>
+                                    <option value="">Select purpose</option>
+                                    <option value="seeds">Seeds Purchase</option>
+                                    <option value="equipment">Equipment/Machinery</option>
+                                    <option value="fertilizer">Fertilizer & Pesticides</option>
+                                    <option value="irrigation">Irrigation Setup</option>
+                                    <option value="livestock">Livestock Purchase</option>
+                                    <option value="warehouse">Warehouse/Storage</option>
+                                    <option value="other">Other Agricultural Purpose</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loanTenure" class="form-label">Loan Tenure (months) *</label>
+                                <select id="loanTenure" name="loanTenure" class="form-select" required>
+                                    <option value="">Select tenure</option>
+                                    <option value="6">6 months</option>
+                                    <option value="12">12 months (1 year)</option>
+                                    <option value="24">24 months (2 years)</option>
+                                    <option value="36">36 months (3 years)</option>
+                                    <option value="48">48 months (4 years)</option>
+                                    <option value="60">60 months (5 years)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="purposeDescription" class="form-label">Purpose Description</label>
+                                <textarea id="purposeDescription" name="purposeDescription" class="form-input" rows="3"
+                                    placeholder="Provide additional details about how you plan to use the loan..."></textarea>
+                            </div>
+
+                            <!-- Loan Summary (calculated on the fly) -->
+                            <div id="loan-summary" class="loan-summary" style="display: none;">
+                                <h4>Loan Summary</h4>
+                                <p><strong>Requested Amount:</strong> <span id="summary-amount">₹0</span></p>
+                                <p><strong>Estimated Interest Rate:</strong> <span id="summary-rate">8.5%</span></p>
+                                <p><strong>Tenure:</strong> <span id="summary-tenure">-</span></p>
+                                <p><strong>Estimated Monthly EMI:</strong> <span id="summary-emi">₹0</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary btn-prev" onclick="prevLoanStep()"
+                                style="display: none;">
+                                <span class="btn-label">← Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-next" onclick="nextLoanStep()">
+                                <span class="btn-label">Next →</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-submit" style="display: none;">
+                                <img src="assets/images/status-icon.png" alt="Submit" class="btn-icon-img"
+                                    onerror="this.style.display='none';">
+                                <span class="btn-label">Submit Application</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="hideLoanForm()"
+                                style="margin-left: auto;">
+                                <span class="btn-label">Cancel</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Insurance Application Form (Hidden by default) -->
+            <section id="insurance-form-section" style="display: none;">
+                <div class="card">
+                    <h2>Apply for Insurance</h2>
+
+                    <!-- Progress Indicator -->
+                    <div class="form-progress">
+                        <div class="progress-step active" data-step="1">
+                            <div class="progress-number">1</div>
+                            <div class="progress-label">Farmer Details</div>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="progress-number">2</div>
+                            <div class="progress-label">Crop & Coverage</div>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="progress-number">3</div>
+                            <div class="progress-label">Documents</div>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <div class="progress-number">4</div>
+                            <div class="progress-label">Bank Details</div>
+                        </div>
+                    </div>
+
+                    <form id="insurance-form">
+                        <!-- Step 1: Farmer Details -->
+                        <div class="form-step active" data-step="1">
+                            <h3 class="step-title">Farmer Details</h3>
+
+                            <div class="form-group">
+                                <label for="ins-farmerType" class="form-label">Farmer Type *</label>
+                                <select id="ins-farmerType" name="farmerType" class="form-select" required>
+                                    <option value="">Select farmer type</option>
+                                    <option value="landowner">Landowner</option>
+                                    <option value="tenant">Tenant</option>
+                                    <option value="sharecropper">Sharecropper</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ins-landLocation" class="form-label">Land Location/Address *</label>
+                                <textarea id="ins-landLocation" name="landLocation" class="form-input" rows="2" required
+                                    placeholder="Village, Taluka, District, State"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Crop & Coverage Details -->
+                        <div class="form-step" data-step="2">
+                            <h3 class="step-title">Crop & Coverage Details</h3>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ins-cropType" class="form-label">Crop Type *</label>
+                                    <select id="ins-cropType" name="cropType" class="form-select" required>
+                                        <option value="">Select crop</option>
+                                        <option value="wheat">Wheat</option>
+                                        <option value="rice">Rice</option>
+                                        <option value="corn">Corn</option>
+                                        <option value="cotton">Cotton</option>
+                                        <option value="sugarcane">Sugarcane</option>
+                                        <option value="vegetables">Vegetables</option>
+                                        <option value="fruits">Fruits</option>
+                                        <option value="pulses">Pulses</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ins-farmArea" class="form-label">Farm Area (acres) *</label>
+                                    <input type="number" id="ins-farmArea" name="farmArea" class="form-input" required
+                                        min="0.1" step="0.1" placeholder="e.g., 5.5">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Coverage Options (select all that apply)</label>
+                                <div class="checkbox-group"
+                                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="yieldProtection" value="true">
+                                        <span>Yield/Income Protection</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="priceProtection" value="true">
+                                        <span>Price Protection</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="weatherRisk" value="true">
+                                        <span>Weather Risk</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="pestDisease" value="true">
+                                        <span>Pest & Disease</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="flood" value="true">
+                                        <span>Flood</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="drought" value="true">
+                                        <span>Drought</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Premium Estimate (calculated on the fly) -->
+                            <div id="insurance-premium-estimate" class="loan-summary" style="display: none;">
+                                <h4>Premium Estimate</h4>
+                                <p><strong>Farm Area:</strong> <span id="ins-summary-area">0</span> acres</p>
+                                <p><strong>Estimated Premium:</strong> <span id="ins-summary-premium">₹0</span></p>
+                                <p><strong>Sum Insured:</strong> <span id="ins-summary-coverage">₹0</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Document Uploads -->
+                        <div class="form-step" data-step="3">
+                            <h3 class="step-title">Document Uploads</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Aadhar Card *</label>
+                                <div class="file-upload" onclick="document.getElementById('ins-aadhar').click()">
+                                    <div class="file-upload-icon">📄</div>
+                                    <p>Click to upload Aadhar Card</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG, PNG or PDF (max 5MB)
+                                    </p>
+                                </div>
+                                <input type="file" id="ins-aadhar" name="aadharCard" accept="image/*,.pdf"
+                                    style="display: none;" required>
+                                <div id="ins-aadhar-preview" class="file-preview"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Land Records (7/12 Extract) *</label>
+                                <div class="file-upload" onclick="document.getElementById('ins-land').click()">
+                                    <div class="file-upload-icon">📋</div>
+                                    <p>Click to upload Land Records</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG, PNG or PDF (max 5MB)
+                                    </p>
+                                </div>
+                                <input type="file" id="ins-land" name="landRecords" accept="image/*,.pdf"
+                                    style="display: none;" required>
+                                <div id="ins-land-preview" class="file-preview"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Sowing Certificate *</label>
+                                <div class="file-upload" onclick="document.getElementById('ins-sowing').click()">
+                                    <div class="file-upload-icon">🌱</div>
+                                    <p>Click to upload Sowing Certificate</p>
+                                    <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG, PNG or PDF (max 5MB)
+                                    </p>
+                                </div>
+                                <input type="file" id="ins-sowing" name="sowingCertificate" accept="image/*,.pdf"
+                                    style="display: none;" required>
+                                <div id="ins-sowing-preview" class="file-preview"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Bank Details -->
+                        <div class="form-step" data-step="4">
+                            <h3 class="step-title">Bank Details</h3>
+
+                            <div class="form-group">
+                                <label for="ins-accountHolder" class="form-label">Account Holder Name *</label>
+                                <input type="text" id="ins-accountHolder" name="accountHolder" class="form-input"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ins-bankName" class="form-label">Bank Name *</label>
+                                <input type="text" id="ins-bankName" name="bankName" class="form-input"
+                                    placeholder="e.g., State Bank of India" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ins-accountNumber" class="form-label">Account Number *</label>
+                                <input type="text" id="ins-accountNumber" name="accountNumber" class="form-input"
+                                    pattern="[0-9]{9,18}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ins-ifscCode" class="form-label">IFSC Code *</label>
+                                <input type="text" id="ins-ifscCode" name="ifscCode" class="form-input"
+                                    placeholder="e.g., SBIN0001234" pattern="[A-Z]{4}0[A-Z0-9]{6}"
+                                    style="text-transform: uppercase;" required>
+                                <small style="color: var(--gray-medium);">11 characters (e.g., SBIN0001234)</small>
+                            </div>
+
+                            <!-- Final Summary -->
+                            <div id="insurance-final-summary" class="loan-summary"
+                                style="display: block; margin-top: 1rem;">
+                                <h4>Application Summary</h4>
+                                <p><strong>Farmer Type:</strong> <span id="final-farmer-type">-</span></p>
+                                <p><strong>Crop Type:</strong> <span id="final-crop-type">-</span></p>
+                                <p><strong>Farm Area:</strong> <span id="final-farm-area">-</span> acres</p>
+                                <p><strong>Estimated Premium:</strong> <span id="final-premium">₹0</span></p>
+                                <p><strong>Sum Insured:</strong> <span id="final-coverage">₹0</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary btn-ins-prev" onclick="prevInsuranceStep()"
+                                style="display: none;">
+                                <span class="btn-label">← Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-ins-next" onclick="nextInsuranceStep()">
+                                <span class="btn-label">Next →</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-ins-submit" style="display: none;">
+                                <img src="assets/images/insurance-icon.png" alt="Submit" class="btn-icon-img"
+                                    onerror="this.style.display='none';">
+                                <span class="btn-label">Submit Application</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="hideInsuranceForm()"
+                                style="margin-left: auto;">
+                                <span class="btn-label">Cancel</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Claim Form (Hidden by default) -->
+            <section id="claim-form-section" style="display: none;">
+                <div class="card">
+                    <h2>File a Claim</h2>
+                    <form id="claim-form">
+                        <div class="form-group">
+                            <label for="policyId" class="form-label">
+                                <img src="assets/images/status-icon.png" alt="Policy" class="form-label-icon-img"
+                                    onerror="this.style.display='none';">
+                                Policy ID
+                            </label>
+                            <input type="text" id="policyId" name="policyId" class="form-input" required
+                                placeholder="Enter your policy ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="claimType" class="form-label">
+                                <img src="assets/images/claim-icon.png" alt="Type" class="form-label-icon-img"
+                                    onerror="this.style.display='none';">
+                                Claim Type
+                            </label>
+                            <select id="claimType" name="claimType" class="form-select" required>
+                                <option value="">Select claim type</option>
+                                <option value="drought">Drought</option>
+                                <option value="flood">Flood</option>
+                                <option value="pest">Pest Attack</option>
+                                <option value="disease">Crop Disease</option>
+                                <option value="hail">Hail Damage</option>
+                                <option value="fire">Fire</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="damageDate" class="form-label">
+                                <img src="assets/images/status-icon.png" alt="Date" class="form-label-icon-img"
+                                    onerror="this.style.display='none';">
+                                Damage Date
+                            </label>
+                            <input type="date" id="damageDate" name="damageDate" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="form-label">
+                                <img src="assets/images/status-icon.png" alt="Description" class="form-label-icon-img"
+                                    onerror="this.style.display='none';">
+                                Description
+                            </label>
+                            <textarea id="description" name="description" class="form-input" rows="4" required
+                                placeholder="Describe the damage..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <img src="assets/images/claim-icon.png" alt="Upload" class="form-label-icon-img"
+                                    onerror="this.style.display='none';">
+                                Upload Photos/Documents
+                            </label>
+                            <div class="file-upload" onclick="document.getElementById('file-input').click()">
+                                <div class="file-upload-icon">Upload</div>
+                                <p>Click to upload or drag and drop</p>
+                                <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG, PNG or PDF (max 5MB)</p>
+                            </div>
+                            <input type="file" id="file-input" multiple accept="image/*,.pdf" style="display: none;">
+                            <div id="file-preview" class="file-preview"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <img src="assets/images/status-icon.png" alt="Submit" class="btn-icon-img"
+                                onerror="this.style.display='none';">
+                            <span class="btn-label">Submit Claim</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="hideClaimForm()"
+                            style="margin-left: 1rem;">
+                            <span class="btn-label">Cancel</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/seed-data.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/dashboard.js"></script>
+    </main>
+</body>
+
+</html>

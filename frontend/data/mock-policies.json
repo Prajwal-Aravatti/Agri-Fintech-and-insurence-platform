@@ -1,0 +1,42 @@
+[
+  {
+    "id": "POLICY_001",
+    "farmerId": "USER_001",
+    "farmId": "FARM_001",
+    "cropType": "wheat",
+    "coverageAmount": 300000,
+    "premium": 9000,
+    "premiumPaid": true,
+    "status": "active",
+    "purchasedAt": "2024-01-18T10:00:00Z",
+    "expiresAt": "2025-01-18T10:00:00Z",
+    "quoteId": "QUOTE_001"
+  },
+  {
+    "id": "POLICY_002",
+    "farmerId": "USER_001",
+    "farmId": "FARM_002",
+    "cropType": "rice",
+    "coverageAmount": 180000,
+    "premium": 6300,
+    "premiumPaid": true,
+    "status": "active",
+    "purchasedAt": "2024-02-10T10:00:00Z",
+    "expiresAt": "2025-02-10T10:00:00Z",
+    "quoteId": "QUOTE_002"
+  },
+  {
+    "id": "POLICY_003",
+    "farmerId": "USER_004",
+    "farmId": "FARM_003",
+    "cropType": "cotton",
+    "coverageAmount": 480000,
+    "premium": 21600,
+    "premiumPaid": true,
+    "status": "active",
+    "purchasedAt": "2024-02-05T10:00:00Z",
+    "expiresAt": "2025-02-05T10:00:00Z",
+    "quoteId": "QUOTE_003"
+  }
+]
+

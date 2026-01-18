@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farmer Sign Up - Agri Fintech & Insurance">
+    <title>Farmer Sign Up - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card" style="max-width: 500px;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="login.html" style="color: var(--gray-medium); text-decoration: none; font-size: 0.875rem;">← Back to Role Selection</a>
+                <h1 style="color: var(--green-primary); margin: 1rem 0 0.5rem;">Farmer Sign Up</h1>
+                <p style="color: var(--gray-medium);">Create your farmer account</p>
+            </div>
+
+            <form id="signup-form" class="login-form active">
+                <input type="hidden" name="role" id="selected-role" value="farmer">
+
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" id="address" name="address" class="form-input" placeholder="Enter your address">
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Create a password (min 6 characters)" required minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <span class="btn-label">Create Account</span>
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: var(--gray-medium); font-size: 0.875rem;">
+                    Already have an account? <a href="login-farmer.html" style="color: var(--green-primary);">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/role-auth.js"></script>
+</body>
+</html>

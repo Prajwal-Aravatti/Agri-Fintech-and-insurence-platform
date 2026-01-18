@@ -1,0 +1,45 @@
+/* Section Navigation Styles */
+.nav-divider {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--gray-medium);
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.nav-link-secondary {
+    padding-left: 2.5rem !important;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.nav-link-secondary:hover {
+    opacity: 1;
+}
+
+/* Make sidebar nav-links scrollable */
+.nav-links {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav-links::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nav-links::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-links::-webkit-scrollbar-thumb {
+    background: rgba(45, 134, 89, 0.3);
+    border-radius: 3px;
+}
+
+.nav-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(45, 134, 89, 0.5);
+}

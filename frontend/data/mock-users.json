@@ -1,0 +1,42 @@
+[
+  {
+    "id": "USER_001",
+    "name": "Rajesh Kumar",
+    "email": "farmer@demo.com",
+    "password": "password123",
+    "role": "farmer",
+    "phone": "+91 9876543210",
+    "address": "Village: Khandwa, District: Khandwa, State: Madhya Pradesh",
+    "createdAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "USER_002",
+    "name": "Priya Sharma",
+    "email": "agent@demo.com",
+    "password": "password123",
+    "role": "agent",
+    "phone": "+91 9876543211",
+    "address": "Insurance Office, Khandwa",
+    "createdAt": "2024-01-10T10:00:00Z"
+  },
+  {
+    "id": "USER_003",
+    "name": "Admin User",
+    "email": "admin@demo.com",
+    "password": "password123",
+    "role": "admin",
+    "phone": "+91 9876543212",
+    "address": "Head Office, Bhopal",
+    "createdAt": "2024-01-01T10:00:00Z"
+  },
+  {
+    "id": "USER_004",
+    "name": "Suresh Patel",
+    "email": "farmer2@demo.com",
+    "password": "password123",
+    "role": "farmer",
+    "phone": "+91 9876543213",
+    "address": "Village: Indore, District: Indore, State: Madhya Pradesh",
+    "createdAt": "2024-02-01T10:00:00Z"
+  }
+]

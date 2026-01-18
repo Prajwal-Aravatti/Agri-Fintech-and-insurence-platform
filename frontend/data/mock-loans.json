@@ -1,0 +1,54 @@
+[
+  {
+    "id": "LOAN_001",
+    "farmerId": "USER_001",
+    "farmId": "FARM_001",
+    "amount": 250000,
+    "approvedAmount": 250000,
+    "purpose": "seeds",
+    "cropType": "wheat",
+    "farmArea": 5.5,
+    "interestRate": 8.5,
+    "tenure": 12,
+    "status": "approved",
+    "disbursedAt": "2024-01-25T10:00:00Z",
+    "createdAt": "2024-01-22T10:00:00Z",
+    "approvedBy": "USER_002",
+    "emiAmount": 21875,
+    "nextEmiDate": "2024-02-25T10:00:00Z"
+  },
+  {
+    "id": "LOAN_002",
+    "farmerId": "USER_001",
+    "farmId": "FARM_002",
+    "amount": 150000,
+    "approvedAmount": 150000,
+    "purpose": "fertilizer",
+    "cropType": "rice",
+    "farmArea": 3.0,
+    "interestRate": 8.5,
+    "tenure": 12,
+    "status": "pending",
+    "createdAt": "2024-02-20T10:00:00Z",
+    "emiAmount": 13125
+  },
+  {
+    "id": "LOAN_003",
+    "farmerId": "USER_004",
+    "farmId": "FARM_003",
+    "amount": 400000,
+    "approvedAmount": 400000,
+    "purpose": "equipment",
+    "cropType": "cotton",
+    "farmArea": 8.0,
+    "interestRate": 7.0,
+    "tenure": 18,
+    "status": "approved",
+    "disbursedAt": "2024-02-15T10:00:00Z",
+    "createdAt": "2024-02-12T10:00:00Z",
+    "approvedBy": "USER_002",
+    "emiAmount": 25000,
+    "nextEmiDate": "2024-03-15T10:00:00Z"
+  }
+]
+

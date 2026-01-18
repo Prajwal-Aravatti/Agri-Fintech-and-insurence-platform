@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to Agri Fintech & Insurance platform">
+    <title>Login - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h1 style="color: var(--green-primary); margin-bottom: 0.5rem;">Welcome Back</h1>
+                <p style="color: var(--gray-medium);">Choose your role to continue</p>
+            </div>
+
+            <!-- Role Selection - Click to go to role-specific login page -->
+            <div class="role-selector">
+                <a href="login-farmer.html" class="role-option" data-role="farmer" style="text-decoration: none;">
+                    <img src="assets/images/farmer-icon.png" alt="Farmer" class="role-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="role-label">Farmer</div>
+                </a>
+                <a href="login-agent.html" class="role-option" data-role="agent" style="text-decoration: none;">
+                    <img src="assets/images/agent-icon.png" alt="Agent" class="role-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="role-label">Agent</div>
+                </a>
+                <a href="login-admin.html" class="role-option" data-role="admin" style="text-decoration: none;">
+                    <img src="assets/images/admin-icon.png" alt="Admin" class="role-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="role-label">Admin</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/seed-data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

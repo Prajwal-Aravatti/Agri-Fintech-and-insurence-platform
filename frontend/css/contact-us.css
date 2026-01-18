@@ -1,0 +1,278 @@
+/* Contact Us Page Styles */
+
+/* Blue Color Palette */
+:root {
+    --blue-primary: #2E8BC0;
+    --blue-dark: #1a6a9a;
+    --blue-light: #5ba3d0;
+    --blue-pale: #e3f2fd;
+}
+
+/* Contact Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    border-radius: var(--radius-lg);
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-hero p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Info Cards Container */
+.contact-info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Contact Info Card */
+.contact-info-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(46, 139, 192, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-primary), var(--blue-light));
+}
+
+.contact-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(46, 139, 192, 0.2);
+    border-color: var(--blue-light);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--blue-pale) 0%, rgba(46, 139, 192, 0.15) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card:hover .contact-icon {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    transform: scale(1.1);
+}
+
+.contact-info-card:hover .contact-icon span {
+    filter: grayscale(1) brightness(10);
+}
+
+.contact-info-card h3 {
+    color: var(--blue-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.contact-info-card p {
+    color: var(--gray-dark);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-info-card a {
+    color: var(--blue-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-info-card a:hover {
+    color: var(--blue-dark);
+    text-decoration: underline;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 3rem;
+}
+
+.contact-form-section h2 {
+    color: var(--blue-dark);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form-section .form-subtitle {
+    color: var(--gray-medium);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-grid .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Contact Form Inputs */
+.contact-form .form-input,
+.contact-form .form-textarea {
+    border: 2px solid var(--blue-pale);
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-input:focus,
+.contact-form .form-textarea:focus {
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 0 4px rgba(46, 139, 192, 0.15);
+}
+
+.contact-form .form-label {
+    color: var(--blue-dark);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--blue-pale);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    background: var(--white);
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 150px;
+    font-family: inherit;
+}
+
+/* Submit Button */
+.btn-contact-submit {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 16px rgba(46, 139, 192, 0.3);
+}
+
+.btn-contact-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(46, 139, 192, 0.4);
+}
+
+.btn-contact-submit:active {
+    transform: translateY(-1px);
+}
+
+.form-submit-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Map/Office Section */
+.office-section {
+    background: linear-gradient(135deg, var(--blue-pale) 0%, rgba(46, 139, 192, 0.1) 100%);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.office-section h2 {
+    color: var(--blue-dark);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.office-section p {
+    color: var(--gray-dark);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Page Container */
+.contact-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form-section {
+        padding: 1.5rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info-container {
+        grid-template-columns: 1fr;
+    }
+}

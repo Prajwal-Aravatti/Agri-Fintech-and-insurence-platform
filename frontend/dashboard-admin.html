@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - Agri Fintech & Insurance">
+    <title>Admin Dashboard - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard-admin.css">
+    <link rel="stylesheet" href="css/sidebar-nav.css">
+</head>
+
+<body>
+    <!-- Sidebar Toggle -->
+    <div id="sidebarToggle" class="tooltip-container">
+        <span class="tooltip">Discover</span>
+        <span class="text">
+            <div class="borde-back">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" height="35" width="35" xmlns="http://www.w3.org/2000/svg" fill="white">
+                        <text x="50%" y="70%" font-size="20" text-anchor="middle" font-weight="bold"
+                            fill="white">₹</text>
+                    </svg>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav" id="sidebar">
+        <div class="nav-logo">
+            <img src="assets/images/logo.png" alt="Agri Fintech" onerror="this.style.display='none';">
+            <span>Agri Fintech</span>
+        </div>
+
+        <!--Weather Widget -->
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-info">
+                <span class="weather-temp">24°C</span>
+                <span class="weather-desc">Sunny</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link"><i class="icon-home"></i> Home</a></li>
+            <li><a href="dashboard-admin.html" class="nav-link active"><i class="icon-grid"></i> Dashboard</a></li>
+            <li><a href="contact-us.html" class="nav-link"><i class="icon-mail"></i> Contact</a></li>
+
+            <!-- Section Navigation -->
+            <li class="nav-divider">Quick Navigation</li>
+            <li><a href="#system-stats" class="nav-link nav-link-secondary"
+                    onclick="scrollToSection('system-stats'); return false;">System Statistics</a></li>
+            <li><a href="#quick-actions" class="nav-link nav-link-secondary"
+                    onclick="scrollToSection('quick-actions'); return false;">Admin Actions</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+        <!-- Dashboard Header with Background Image -->
+        <div class="dashboard-header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p id="user-name">Loading...</p>
+                </div>
+                <div class="user-info">
+                    <span id="user-role" class="badge badge-admin">Admin</span>
+                    <button id="logout-btn" class="btn btn-secondary btn-logout-admin">
+                        <span class="btn-label">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- System Statistics -->
+            <section id="system-stats" style="margin-bottom: 2rem;">
+                <h2 style="margin-bottom: 1rem;">System Statistics</h2>
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions" id="quick-actions">
+                <h2 style="margin-bottom: 1rem;">Admin Actions</h2>
+                <div class="tile-grid">
+                    <a href="#manage-users" class="tile grass-bg" onclick="showUserManagement(); return false;">
+                        <img src="assets/images/farmer-icon.png" alt="Manage Users" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Manage Users</div>
+                        <div class="tile-description">View and manage all users</div>
+                    </a>
+                    <a href="#view-loans" class="tile grass-bg" onclick="showAllLoans(); return false;">
+                        <img src="assets/images/loan-icon.png" alt="All Loans" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">All Loans</div>
+                        <div class="tile-description">View all loan applications</div>
+                    </a>
+                    <a href="#view-policies" class="tile grass-bg" onclick="showAllPolicies(); return false;">
+                        <img src="assets/images/insurance-icon.png" alt="All Policies" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">All Policies</div>
+                        <div class="tile-description">View all insurance policies</div>
+                    </a>
+                    <a href="#view-claims" class="tile grass-bg" onclick="showAllClaims(); return false;">
+                        <img src="assets/images/claim-icon.png" alt="All Claims" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">All Claims</div>
+                        <div class="tile-description">View all insurance claims</div>
+                    </a>
+                    <a href="#analytics" class="tile grass-bg" onclick="showAnalytics(); return false;">
+                        <img src="assets/images/status-icon.png" alt="Analytics" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Analytics</div>
+                        <div class="tile-description">System analytics and reports</div>
+                    </a>
+                    <a href="#settings" class="tile grass-bg" onclick="showSettings(); return false;">
+                        <img src="assets/images/status-icon.png" alt="Settings" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Settings</div>
+                        <div class="tile-description">System configuration</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Admin Sections (Hidden by default) -->
+            <section id="user-management-section" style="display: none;">
+                <div class="card">
+                    <h2>User Management</h2>
+                    <div id="users-list">
+                        <!-- Will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/seed-data.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/dashboard-admin.js"></script>
+    </main>
+</body>
+
+</html>

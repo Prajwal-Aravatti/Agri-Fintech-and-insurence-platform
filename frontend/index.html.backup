@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Agri Fintech & Insurance - Digital platform for farmers to access loans and crop insurance">
+    <title>Agri Fintech & Insurance - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Background Slider -->
+    <div class="bg-slider">
+        <div class="bg-slide active" style="background-image: url('assets/images/bg-slider/bg-1.png');"></div>
+        <div class="bg-slide" style="background-image: url('assets/images/bg-slider/bg-2.png');"></div>
+        <div class="bg-slide" style="background-image: url('assets/images/bg-slider/bg-3.png');"></div>
+    </div>
+    <!-- Sidebar Toggle -->
+    <button id="sidebarToggle" class="sidebar-toggle">
+        ☰
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav" id="sidebar">
+        <div class="nav-logo">
+            <img src="assets/images/logo.png" alt="Agri Fintech" onerror="this.style.display='none';">
+            <span>Agri Fintech</span>
+        </div>
+
+        <!-- Weather Widget -->
+        <div class="weather-widget">
+            <div class="weather-icon">☀️</div>
+            <div class="weather-info">
+                <span class="weather-temp">24°C</span>
+                <span class="weather-desc">Sunny</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active"><i class="icon-home"></i> Home</a></li>
+            <li><a href="#features" class="nav-link"><i class="icon-grid"></i> Features</a></li>
+            <li><a href="#about" class="nav-link"><i class="icon-info"></i> About</a></li>
+            <li><button id="loginBtn" class="nav-link btn-link"><i class="icon-user"></i> Login</button></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+
+        <!-- Hero Section -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Agri Fintech & Insurance</h1>
+                <p>Empowering Farmers with Digital Loans & Crop Insurance</p>
+                <div style="margin-top: 2rem;">
+                    <button id="heroLoginBtn" class="btn btn-cta">
+                        onerror="this.style.display='none';">
+                        <div class="tile-title">Quick Loans</div>
+                        <div class="tile-description">Apply for agricultural loans</div>
+                </div>
+            </div>
+            <div class="tile grass-bg">
+                <div class="tile-overlay"></div>
+                <div class="tile-content">
+                    <img src="assets/images/insurance-icon.png" alt="Crop Insurance" class="tile-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="tile-title">Crop Insurance</div>
+                    <div class="tile-description">Protect your crops</div>
+                </div>
+            </div>
+            <div class="tile grass-bg">
+                <div class="tile-overlay"></div>
+                <div class="tile-content">
+                    <img src="assets/images/claim-icon.png" alt="Easy Claims" class="tile-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="tile-title">Easy Claims</div>
+                    <div class="tile-description">File claims quickly</div>
+                </div>
+            </div>
+            <div class="tile grass-bg">
+                <div class="tile-overlay"></div>
+                <div class="tile-content">
+                    <img src="assets/images/status-icon.png" alt="Track Status" class="tile-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="tile-title">Track Status</div>
+                    <div class="tile-description">Monitor your loans</div>
+                </div>
+            </div>
+            <div class="tile grass-bg">
+                <div class="tile-overlay"></div>
+                <div class="tile-content">
+                    <img src="assets/images/payment-icon.png" alt="Secure Payments" class="tile-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="tile-title">Secure Payments</div>
+                    <div class="tile-description">Pay premiums and EMIs</div>
+                </div>
+            </div>
+            <div class="tile grass-bg">
+                <div class="tile-overlay"></div>
+                <div class="tile-content">
+                    <img src="assets/images/mobile-icon.png" alt="Mobile Friendly" class="tile-icon-img"
+                        onerror="this.style.display='none';">
+                    <div class="tile-title">Mobile Friendly</div>
+                    <div class="tile-description">Access anywhere</div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="about" style="padding: 4rem 1.5rem; background: var(--gray-light);">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.5rem; color: var(--green-dark);">How It
+                    Works</h2>
+                <p style="text-align: center; margin-bottom: 3rem; color: var(--gray-medium); font-size: 1.125rem;">
+                    Simple steps to get started</p>
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div class="tile-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-icon">1</span>
+                                <h3>Register</h3>
+                            </div>
+                            <p>Create your account as a Farmer, Agent, or Admin</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-icon">2</span>
+                                <h3>Apply</h3>
+                            </div>
+                            <p>Submit loan applications or request insurance quotes</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-icon">3</span>
+                                <h3>Get Approved</h3>
+                            </div>
+                            <p>Receive quick approvals from agents and admins</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-icon">4</span>
+                                <h3>Manage</h3>
+                            </div>
+                            <p>Track payments, file claims, and manage your portfolio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            style="padding: 5rem 1.5rem; background: linear-gradient(135deg, var(--green-primary) 0%, var(--teal-primary) 100%); color: white; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: white; margin-bottom: 1rem; font-size: 2.5rem; font-weight: 700;">Ready to Get
+                    Started?</h2>
+                <p
+                    style="color: rgba(255, 255, 255, 0.95); font-size: 1.25rem; margin-bottom: 2.5rem; line-height: 1.6;">
+                    Join thousands of farmers using our platform</p>
+                <a href="login.html" class="btn btn-cta" style="background: var(--orange-cta); min-width: 160px;">
+                    <img src="assets/images/get-started-icon.png" alt="Login" class="btn-icon-img"
+                        onerror="this.style.display='none';">
+                    <span class="btn-label">Login Now</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="background: var(--green-dark); color: white; padding: 2rem 1.5rem; text-align: center;">
+            <p>&copy; 2025 Agri Fintech & Insurance. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem; opacity: 0.8;">Built for farmers, by farmers</p>
+        </footer>
+
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+
+            <!-- Step 1: Role Selection -->
+            <div id="roleSelectionStep">
+                <h2 style="text-align: center; margin-bottom: 1rem;">Who are you?</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">Select your role to continue</p>
+                <div class="role-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="role-card" onclick="selectRole('farmer')"
+                        style="cursor: pointer; padding: 1rem; border: 2px solid var(--green-pale); border-radius: var(--radius-md); text-align: center; transition: all 0.3s;">
+                        <img src="assets/images/logo.png" style="width: 48px; height: 48px; margin-bottom: 0.5rem;"
+                            onerror="this.style.display='none'">
+                        <h3>Farmer</h3>
+                    </div>
+                    <div class="role-card" onclick="selectRole('agent')"
+                        style="cursor: pointer; padding: 1rem; border: 2px solid var(--green-pale); border-radius: var(--radius-md); text-align: center; transition: all 0.3s;">
+                        <img src="assets/images/logo.png" style="width: 48px; height: 48px; margin-bottom: 0.5rem;"
+                            onerror="this.style.display='none'">
+                        <h3>Agent</h3>
+                    </div>
+                    <div class="role-card" onclick="selectRole('admin')"
+                        style="cursor: pointer; padding: 1rem; border: 2px solid var(--green-pale); border-radius: var(--radius-md); text-align: center; transition: all 0.3s;">
+                        <img src="assets/images/logo.png" style="width: 48px; height: 48px; margin-bottom: 0.5rem;"
+                            onerror="this.style.display='none'">
+                        <h3>Admin</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Login Form (Hidden initially) -->
+            <div id="loginFormStep" style="display: none;">
+                <h2 id="loginTitle">Welcome Back</h2>
+                <p>Login to access your dashboard</p>
+                <form id="loginForm">
+                    <input type="hidden" id="selectedRole" name="role">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-input" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                    <button type="button" onclick="backToRoles()" class="btn btn-link"
+                        style="text-align: center; margin-top: 1rem; color: var(--gray-medium);">Back to Role
+                        Selection</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/seed-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

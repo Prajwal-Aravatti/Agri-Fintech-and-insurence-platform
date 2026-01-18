@@ -1,0 +1,36 @@
+[
+  {
+    "id": "FARM_001",
+    "farmerId": "USER_001",
+    "name": "Kumar Farm",
+    "location": "Khandwa, Madhya Pradesh",
+    "area": 5.5,
+    "cropType": "wheat",
+    "soilQuality": "fertile",
+    "irrigationType": "canal",
+    "registrationDate": "2024-01-20T10:00:00Z"
+  },
+  {
+    "id": "FARM_002",
+    "farmerId": "USER_001",
+    "name": "Kumar Farm - Plot 2",
+    "location": "Khandwa, Madhya Pradesh",
+    "area": 3.0,
+    "cropType": "rice",
+    "soilQuality": "fertile",
+    "irrigationType": "well",
+    "registrationDate": "2024-02-15T10:00:00Z"
+  },
+  {
+    "id": "FARM_003",
+    "farmerId": "USER_004",
+    "name": "Patel Farm",
+    "location": "Indore, Madhya Pradesh",
+    "area": 8.0,
+    "cropType": "cotton",
+    "soilQuality": "moderate",
+    "irrigationType": "drip",
+    "registrationDate": "2024-02-10T10:00:00Z"
+  }
+]
+

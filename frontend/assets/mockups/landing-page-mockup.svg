@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" style="background: #f5f5f5;">
+  <!-- Navigation Bar -->
+  <rect x="0" y="0" width="1920" height="80" fill="white" stroke="#2d8659" stroke-width="2"/>
+  <text x="100" y="50" font-size="28" font-weight="bold" fill="#2d8659">🌾 Agri Fintech</text>
+  <text x="1600" y="50" font-size="18" fill="#424242">Home</text>
+  <text x="1720" y="50" font-size="18" fill="#424242">Features</text>
+  <text x="1800" y="50" font-size="18" fill="#2d8659">Login</text>
+  
+  <!-- Hero Section -->
+  <rect x="0" y="80" width="1920" height="400" fill="url(#heroGradient)"/>
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d8659;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#26a69a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <text x="960" y="200" font-size="56" font-weight="bold" text-anchor="middle" fill="white">🌾 Agri Fintech &amp; Insurance</text>
+  <text x="960" y="280" font-size="32" text-anchor="middle" fill="white" opacity="0.95">Empowering Farmers with Digital Loans &amp; Crop Insurance</text>
+  
+  <rect x="760" y="340" width="400" height="80" fill="#ff9800" rx="10"/>
+  <text x="960" y="390" font-size="24" text-anchor="middle" fill="white">🚀 Get Started</text>
+  
+  <!-- Features Section -->
+  <rect x="0" y="480" width="1920" height="600" fill="white"/>
+  <text x="960" y="540" font-size="40" font-weight="bold" text-anchor="middle" fill="#1f5d3f">Key Features</text>
+  
+  <!-- Feature Tiles -->
+  <g transform="translate(200, 600)">
+    <rect x="0" y="0" width="220" height="200" fill="#e8f5e9" stroke="#2d8659" stroke-width="2" rx="10"/>
+    <text x="110" y="60" font-size="64" text-anchor="middle">💰</text>
+    <text x="110" y="120" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f5d3f">Quick Loans</text>
+    <text x="110" y="160" font-size="14" text-anchor="middle" fill="#424242">Apply for agricultural</text>
+    <text x="110" y="180" font-size="14" text-anchor="middle" fill="#424242">loans easily</text>
+  </g>
+  
+  <g transform="translate(500, 600)">
+    <rect x="0" y="0" width="220" height="200" fill="#e8f5e9" stroke="#2d8659" stroke-width="2" rx="10"/>
+    <text x="110" y="60" font-size="64" text-anchor="middle">🛡️</text>
+    <text x="110" y="120" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f5d3f">Crop Insurance</text>
+    <text x="110" y="160" font-size="14" text-anchor="middle" fill="#424242">Protect your crops</text>
+    <text x="110" y="180" font-size="14" text-anchor="middle" fill="#424242">with insurance</text>
+  </g>
+  
+  <g transform="translate(800, 600)">
+    <rect x="0" y="0" width="220" height="200" fill="#e8f5e9" stroke="#2d8659" stroke-width="2" rx="10"/>
+    <text x="110" y="60" font-size="64" text-anchor="middle">📋</text>
+    <text x="110" y="120" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f5d3f">Easy Claims</text>
+    <text x="110" y="160" font-size="14" text-anchor="middle" fill="#424242">File claims quickly</text>
+    <text x="110" y="180" font-size="14" text-anchor="middle" fill="#424242">with photo upload</text>
+  </g>
+  
+  <g transform="translate(1100, 600)">
+    <rect x="0" y="0" width="220" height="200" fill="#e8f5e9" stroke="#2d8659" stroke-width="2" rx="10"/>
+    <text x="110" y="60" font-size="64" text-anchor="middle">📊</text>
+    <text x="110" y="120" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f5d3f">Track Status</text>
+    <text x="110" y="160" font-size="14" text-anchor="middle" fill="#424242">Monitor loans and</text>
+    <text x="110" y="180" font-size="14" text-anchor="middle" fill="#424242">claims in real-time</text>
+  </g>
+  
+  <g transform="translate(1400, 600)">
+    <rect x="0" y="0" width="220" height="200" fill="#e8f5e9" stroke="#2d8659" stroke-width="2" rx="10"/>
+    <text x="110" y="60" font-size="64" text-anchor="middle">💳</text>
+    <text x="110" y="120" font-size="20" font-weight="bold" text-anchor="middle" fill="#1f5d3f">Secure Payments</text>
+    <text x="110" y="160" font-size="14" text-anchor="middle" fill="#424242">Pay premiums and</text>
+    <text x="110" y="180" font-size="14" text-anchor="middle" fill="#424242">EMIs securely</text>
+  </g>
+  
+  <!-- How It Works -->
+  <rect x="200" y="900" width="1520" height="120" fill="#f5f5f5" rx="10"/>
+  <text x="960" y="940" font-size="32" font-weight="bold" text-anchor="middle" fill="#1f5d3f">How It Works</text>
+  
+  <text x="400" y="980" font-size="18" text-anchor="middle" fill="#424242">1️⃣ Register</text>
+  <text x="700" y="980" font-size="18" text-anchor="middle" fill="#424242">2️⃣ Apply</text>
+  <text x="1000" y="980" font-size="18" text-anchor="middle" fill="#424242">3️⃣ Get Approved</text>
+  <text x="1300" y="980" font-size="18" text-anchor="middle" fill="#424242">4️⃣ Manage</text>
+  
+  <!-- Footer -->
+  <rect x="0" y="1020" width="1920" height="60" fill="#1f5d3f"/>
+  <text x="960" y="1055" font-size="16" text-anchor="middle" fill="white">© 2025 Agri Fintech &amp; Insurance. All rights reserved.</text>
+</svg>
+

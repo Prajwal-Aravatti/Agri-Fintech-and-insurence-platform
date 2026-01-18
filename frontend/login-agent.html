@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agent Login - Agri Fintech & Insurance">
+    <title>Agent Login - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="login.html" style="color: var(--gray-medium); text-decoration: none; font-size: 0.875rem;">← Back to Role Selection</a>
+                <h1 style="color: var(--green-primary); margin: 1rem 0 0.5rem;">Agent Login</h1>
+                <p style="color: var(--gray-medium);">Access your agent dashboard</p>
+            </div>
+
+            <form id="login-form" class="login-form active">
+                <input type="hidden" name="role" id="selected-role" value="agent">
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <span class="btn-label">Login</span>
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: var(--gray-medium); font-size: 0.875rem;">
+                    Don't have an account? <a href="signup-agent.html" style="color: var(--green-primary);">Sign up here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/role-auth.js"></script>
+</body>
+</html>

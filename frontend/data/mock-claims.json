@@ -1,0 +1,71 @@
+[
+  {
+    "id": "CLAIM_001",
+    "farmerId": "USER_001",
+    "policyId": "POLICY_001",
+    "claimType": "drought",
+    "description": "Severe drought conditions affected wheat crop yield",
+    "damageDate": "2024-03-15T10:00:00Z",
+    "claimedAmount": 150000,
+    "approvedAmount": 120000,
+    "status": "approved",
+    "filedAt": "2024-03-20T10:00:00Z",
+    "reviewedBy": "USER_002",
+    "reviewedAt": "2024-03-25T10:00:00Z",
+    "payoutDate": "2024-03-28T10:00:00Z",
+    "files": [
+      {
+        "name": "damage_photo_1.jpg",
+        "type": "image/jpeg",
+        "timestamp": "2024-03-20T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "CLAIM_002",
+    "farmerId": "USER_001",
+    "policyId": "POLICY_002",
+    "claimType": "pest",
+    "description": "Pest attack on rice crop",
+    "damageDate": "2024-04-10T10:00:00Z",
+    "claimedAmount": 80000,
+    "status": "pending",
+    "filedAt": "2024-04-15T10:00:00Z",
+    "files": [
+      {
+        "name": "pest_damage.jpg",
+        "type": "image/jpeg",
+        "timestamp": "2024-04-15T10:00:00Z"
+      },
+      {
+        "name": "field_report.pdf",
+        "type": "application/pdf",
+        "timestamp": "2024-04-15T10:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "CLAIM_003",
+    "farmerId": "USER_004",
+    "policyId": "POLICY_003",
+    "claimType": "flood",
+    "description": "Flood damage to cotton fields",
+    "damageDate": "2024-05-05T10:00:00Z",
+    "claimedAmount": 200000,
+    "status": "under_review",
+    "filedAt": "2024-05-08T10:00:00Z",
+    "files": [
+      {
+        "name": "flood_damage_1.jpg",
+        "type": "image/jpeg",
+        "timestamp": "2024-05-08T10:00:00Z"
+      },
+      {
+        "name": "flood_damage_2.jpg",
+        "type": "image/jpeg",
+        "timestamp": "2024-05-08T10:00:00Z"
+      }
+    ]
+  }
+]
+

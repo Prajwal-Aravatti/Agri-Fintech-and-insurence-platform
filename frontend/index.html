@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Agri Fintech & Insurance - Digital platform for farmers to access loans and crop insurance">
+    <title>Agri Fintech & Insurance - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- Background Slider -->
+    <div class="bg-slider">
+        <div class="bg-slide active" style="background-image: url('assets/images/bg-slider/bg-1.png');"></div>
+        <div class="bg-slide" style="background-image: url('assets/images/bg-slider/bg-2.png');"></div>
+        <div class="bg-slide" style="background-image: url('assets/images/bg-slider/bg-3.png');"></div>
+    </div>
+    <!-- Sidebar Toggle -->
+    <div id="sidebarToggle" class="tooltip-container">
+        <span class="tooltip">Discover</span>
+        <span class="text">
+            <div class="borde-back">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" height="35" width="35" xmlns="http://www.w3.org/2000/svg" fill="white">
+                        <text x="50%" y="70%" font-size="20" text-anchor="middle" font-weight="bold"
+                            fill="white">₹</text>
+                    </svg>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav" id="sidebar">
+        <div class="nav-logo">
+            <img src="assets/images/logo.png" alt="Agri Fintech" onerror="this.style.display='none';">
+            <span>Agri Fintech</span>
+        </div>
+
+        <!--Weather Widget -->
+        <div class="weather-widget">
+            <div class="weather-icon">☀️</div>
+            <div class="weather-info">
+                <span class="weather-temp">24°C</span>
+                <span class="weather-desc">Sunny</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active"><i class="icon-home"></i> Home</a></li>
+            <li><a href="#features" class="nav-link"><i class="icon-grid"></i> Services</a></li>
+            <li><a href="#about" class="nav-link"><i class="icon-info"></i> About</a></li>
+            <li><a href="contact-us.html" class="nav-link"><i class="icon-mail"></i> Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Agri Fintech & Insurance</h1>
+                <p>Empowering Farmers with Digital Loans & Crop Insurance</p>
+                <div class="hero-cta-container">
+                    <a href="login.html" class="btn btn-cta">
+                        <span class="btn-label">Get Started</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="features">
+            <div class="container-wide">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">
+                    Comprehensive solutions for modern agriculture</p>
+                <div class="tile-grid services-grid">
+                    <div class="tile service-tile" data-service="quick-loans">
+                        <div class="tile-content">
+                            <div class="tile-title">Quick Loans</div>
+                            <div class="tile-description">Apply for agricultural loans</div>
+                        </div>
+                    </div>
+                    <div class="tile service-tile" data-service="crop-insurance">
+                        <div class="tile-content">
+                            <div class="tile-title">Crop Insurance</div>
+                            <div class="tile-description">Protect your crops</div>
+                        </div>
+                    </div>
+                    <div class="tile service-tile" data-service="easy-claims">
+                        <div class="tile-content">
+                            <div class="tile-title">Easy Claims</div>
+                            <div class="tile-description">File claims quickly</div>
+                        </div>
+                    </div>
+                    <div class="tile service-tile" data-service="track-status">
+                        <div class="tile-content">
+                            <div class="tile-title">Track Status</div>
+                            <div class="tile-description">Monitor your loans</div>
+                        </div>
+                    </div>
+                    <div class="tile service-tile" data-service="secure-payments">
+                        <div class="tile-content">
+                            <div class="tile-title">Secure Payments</div>
+                            <div class="tile-description">Pay premiums and EMIs</div>
+                        </div>
+                    </div>
+                    <div class="tile service-tile" data-service="mobile-friendly">
+                        <div class="tile-content">
+                            <div class="tile-title">Mobile Friendly</div>
+                            <div class="tile-description">Access anywhere</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Guide Section (Hidden by default) -->
+        <section id="serviceGuide" class="service-guide-section">
+            <div class="container-medium">
+                <div class="service-guide-content">
+                    <h3 id="guideTitle" class="modal-title">
+                    </h3>
+                    <div id="guideInstructions">
+                    </div>
+                    <div class="text-center">
+                        <button id="guideActionBtn" class="btn btn-primary btn-large">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container-narrow">
+                <h2 class="cta-title">Ready to Get
+                    Started?</h2>
+                <p class="cta-text">
+                    Join thousands of farmers using our platform</p>
+                <a href="login.html" class="btn btn-cta btn-cta-primary">
+                    <img src="assets/images/get-started-icon.png" alt="Login" class="btn-icon-img"
+                        onerror="this.style.display='none';">
+                    <span class="btn-label">Login Now</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>&copy; 2025 Agri Fintech & Insurance. All rights reserved.</p>
+            <p class="footer-subtext">Built for farmers, by farmers</p>
+        </footer>
+
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+
+            <!-- Step 1: Role Selection -->
+            <div id="roleSelectionStep">
+                <h2 class="modal-title">Who are you?</h2>
+                <p class="modal-subtitle">Select your role to continue</p>
+                <div class="role-grid">
+                    <div class="role-card" onclick="selectRole('farmer')">
+                        <img src="assets/images/logo.png" class="role-icon" onerror="this.style.display='none'">
+                        <h3>Farmer</h3>
+                    </div>
+                    <div class="role-card" onclick="selectRole('agent')">
+                        <img src="assets/images/logo.png" class="role-icon" onerror="this.style.display='none'">
+                        <h3>Agent</h3>
+                    </div>
+                    <div class="role-card" onclick="selectRole('admin')">
+                        <img src="assets/images/logo.png" class="role-icon" onerror="this.style.display='none'">
+                        <h3>Admin</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Login Form (Hidden initially) -->
+            <div id="loginFormStep" style="display: none;">
+                <h2 id="loginTitle" class="modal-title">Welcome Back</h2>
+                <p class="modal-subtitle">Login to access your dashboard</p>
+                <form id="loginForm">
+                    <input type="hidden" id="selectedRole" name="role">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Enter password"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full-width">Login</button>
+                    <div id="signupLinkContainer" style="text-align: center; margin-top: 15px;">
+                        <p style="margin: 0; color: #666;">Don't have an account?
+                            <a href="#" onclick="showSignupForm(); return false;"
+                                style="color: #4CAF50; font-weight: 600;">Sign Up</a>
+                        </p>
+                    </div>
+                    <button type="button" onclick="backToRoles()" class="btn btn-link btn-back">Back to Role
+                        Selection</button>
+                </form>
+            </div>
+
+            <!-- Step 3: Sign Up Form (Hidden initially) -->
+            <div id="signupFormStep" style="display: none;">
+                <h2 id="signupTitle" class="modal-title">Create Account</h2>
+                <p class="modal-subtitle">Register as a new user</p>
+                <form id="signupForm">
+                    <input type="hidden" id="signupRole" name="role">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="signupName" class="form-input" placeholder="Enter your full name"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="signupEmail" class="form-input" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" id="signupPhone" class="form-input" placeholder="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <input type="text" id="signupAddress" class="form-input" placeholder="Enter address">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="signupPassword" class="form-input"
+                            placeholder="Enter password (min 6 characters)" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" id="signupPasswordConfirm" class="form-input"
+                            placeholder="Confirm password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full-width">Sign Up</button>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <p style="margin: 0; color: #666;">Already have an account?
+                            <a href="#" onclick="showLoginForm(); return false;"
+                                style="color: #4CAF50; font-weight: 600;">Login</a>
+                        </p>
+                    </div>
+                    <button type="button" onclick="backToRoles()" class="btn btn-link btn-back">Back to Role
+                        Selection</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/seed-data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/service-guide.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farmer Dashboard - Agri Fintech & Insurance">
+    <title>Dashboard - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <div>
+            <h1 class="header-title">Farmer Dashboard</h1>
+            <p id="user-name" class="header-subtitle">Loading...</p>
+        </div>
+        <div class="user-info">
+            <span id="user-role" class="badge badge-success">Farmer</span>
+            <button id="logout-btn" class="btn btn-secondary logout-btn">
+                <span class="btn-label">Logout</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Dashboard Stats -->
+        <section id="dashboard-stats">
+            <!-- Stats will be loaded dynamically -->
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <h2 class="section-title">Quick Actions</h2>
+            <div class="tile-grid">
+                <a href="#apply-loan" class="tile grass-bg" onclick="showLoanForm()">
+                    <div class="tile-icon"></div>
+                    <div class="tile-title">Apply Loan</div>
+                    <div class="tile-description">Check eligibility & apply</div>
+                </a>
+                <a href="#get-quote" class="tile grass-bg" onclick="showInsuranceForm()">
+                    <div class="tile-icon"></div>
+                    <div class="tile-title">Get Quote</div>
+                    <div class="tile-description">Insurance premium calculator</div>
+                </a>
+                <a href="#file-claim" class="tile grass-bg" onclick="showClaimForm()">
+                    <div class="tile-icon"></div>
+                    <div class="tile-title">File Claim</div>
+                    <div class="tile-description">Submit claim with photos</div>
+                </a>
+                <a href="#view-loans" class="tile grass-bg" onclick="showLoans()">
+                    <div class="tile-icon"></div>
+                    <div class="tile-title">My Loans</div>
+                    <div class="tile-description">View loan status</div>
+                </a>
+                <a href="#view-policies" class="tile grass-bg" onclick="showPolicies()">
+                    <div class="tile-icon"></div>
+                    <div class="tile-title">My Policies</div>
+                    <div class="tile-description">Insurance policies</div>
+                </a>
+                <a href="#view-claims" class="tile grass-bg" onclick="showClaims()">
+                    <div class="tile-icon"></div>
+                    <div class="tile-title">My Claims</div>
+                    <div class="tile-description">Track claim status</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Area -->
+        <section id="dynamic-content">
+            <!-- Recent Activities -->
+            <div id="recent-activities">
+                <h2 class="section-title">Recent Activities</h2>
+                <!-- Activities will be loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- Loan Application Form (Hidden by default) -->
+        <section id="loan-form-section">
+            <div class="card">
+                <h2>Apply for Loan</h2>
+                <form id="loan-form">
+                    <div class="form-group">
+                        <label for="loanAmount" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Loan Amount (₹)
+                        </label>
+                        <input type="number" id="loanAmount" name="loanAmount" class="form-input" required min="10000"
+                            step="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="purpose" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Purpose
+                        </label>
+                        <select id="purpose" name="purpose" class="form-select" required>
+                            <option value="">Select purpose</option>
+                            <option value="seeds">Seeds Purchase</option>
+                            <option value="equipment">Equipment</option>
+                            <option value="fertilizer">Fertilizer</option>
+                            <option value="irrigation">Irrigation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="farmArea" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Farm Area (acres)
+                        </label>
+                        <input type="number" id="farmArea" name="farmArea" class="form-input" required min="0.5"
+                            step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="cropType" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Crop Type
+                        </label>
+                        <select id="cropType" name="cropType" class="form-select" required>
+                            <option value="">Select crop</option>
+                            <option value="wheat">Wheat</option>
+                            <option value="rice">Rice</option>
+                            <option value="corn">Corn</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="sugarcane">Sugarcane</option>
+                            <option value="vegetables">Vegetables</option>
+                            <option value="fruits">Fruits</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon"></span>
+                        <span class="btn-label">Submit Application</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary form-btn-cancel" onclick="hideLoanForm()">
+                        <span class="btn-label">Cancel</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Insurance Quote Form (Hidden by default) -->
+        <section id="insurance-form-section">
+            <div class="card">
+                <h2>Get Insurance Quote</h2>
+                <form id="insurance-form">
+                    <div class="form-group">
+                        <label for="insurance-cropType" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Crop Type
+                        </label>
+                        <select id="insurance-cropType" name="cropType" class="form-select" required>
+                            <option value="">Select crop</option>
+                            <option value="wheat">Wheat</option>
+                            <option value="rice">Rice</option>
+                            <option value="corn">Corn</option>
+                            <option value="cotton">Cotton</option>
+                            <option value="sugarcane">Sugarcane</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="insurance-farmArea" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Farm Area (acres)
+                        </label>
+                        <input type="number" id="insurance-farmArea" name="farmArea" class="form-input" required
+                            min="0.5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="coverageAmount" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Coverage Amount (₹)
+                        </label>
+                        <input type="number" id="coverageAmount" name="coverageAmount" class="form-input" required
+                            min="10000" step="1000">
+                    </div>
+                    <button type="submit" class="btn btn-accent">
+                        <span class="btn-icon"></span>
+                        <span class="btn-label">Get Quote</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary form-btn-cancel" onclick="hideInsuranceForm()">
+                        <span class="btn-label">Cancel</span>
+                    </button>
+                </form>
+                <div id="quote-details"></div>
+            </div>
+        </section>
+
+        <!-- Claim Form (Hidden by default) -->
+        <section id="claim-form-section">
+            <div class="card">
+                <h2>File a Claim</h2>
+                <form id="claim-form">
+                    <div class="form-group">
+                        <label for="policyId" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Policy ID
+                        </label>
+                        <input type="text" id="policyId" name="policyId" class="form-input" required
+                            placeholder="Enter your policy ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="claimType" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Claim Type
+                        </label>
+                        <select id="claimType" name="claimType" class="form-select" required>
+                            <option value="">Select claim type</option>
+                            <option value="drought">Drought</option>
+                            <option value="flood">Flood</option>
+                            <option value="pest">Pest Attack</option>
+                            <option value="disease">Crop Disease</option>
+                            <option value="hail">Hail Damage</option>
+                            <option value="fire">Fire</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="damageDate" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Damage Date
+                        </label>
+                        <input type="date" id="damageDate" name="damageDate" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="form-label">
+                            <span class="form-label-icon"></span>
+                            Description
+                        </label>
+                        <textarea id="description" name="description" class="form-input" rows="4" required
+                            placeholder="Describe the damage..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="form-label-icon"></span>
+                            Upload Photos/Documents
+                        </label>
+                        <div class="file-upload" onclick="document.getElementById('file-input').click()">
+                            <div class="file-upload-icon"></div>
+                            <p>Click to upload or drag and drop</p>
+                            <p style="font-size: 0.75rem; color: var(--gray-medium);">JPG, PNG or PDF (max 5MB)</p>
+                        </div>
+                        <input type="file" id="file-input" multiple accept="image/*,.pdf">
+                        <div id="file-preview" class="file-preview"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon"></span>
+                        <span class="btn-label">Submit Claim</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary form-btn-cancel" onclick="hideClaimForm()">
+                        <span class="btn-label">Cancel</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/seed-data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agent Dashboard - Agri Fintech & Insurance">
+    <title>Agent Dashboard - Agri Fintech & Insurance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard-agent.css">
+    <link rel="stylesheet" href="css/sidebar-nav.css">
+</head>
+
+<body>
+    <!-- Sidebar Toggle -->
+    <div id="sidebarToggle" class="tooltip-container">
+        <span class="tooltip">Discover</span>
+        <span class="text">
+            <div class="borde-back">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" height="35" width="35" xmlns="http://www.w3.org/2000/svg" fill="white">
+                        <text x="50%" y="70%" font-size="20" text-anchor="middle" font-weight="bold"
+                            fill="white">₹</text>
+                    </svg>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-nav" id="sidebar">
+        <div class="nav-logo">
+            <img src="assets/images/logo.png" alt="Agri Fintech" onerror="this.style.display='none';">
+            <span>Agri Fintech</span>
+        </div>
+
+        <!--Weather Widget -->
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-info">
+                <span class="weather-temp">24°C</span>
+                <span class="weather-desc">Sunny</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link"><i class="icon-home"></i> Home</a></li>
+            <li><a href="dashboard-agent.html" class="nav-link active"><i class="icon-grid"></i> Dashboard</a></li>
+            <li><a href="contact-us.html" class="nav-link"><i class="icon-mail"></i> Contact</a></li>
+
+            <!-- Section Navigation -->
+            <li class="nav-divider">Quick Navigation</li>
+            <li><a href="#pending-reviews" class="nav-link nav-link-secondary"
+                    onclick="scrollToSection('pending-reviews'); return false;">Application Statistics</a></li>
+            <li><a href="#quick-actions" class="nav-link nav-link-secondary"
+                    onclick="scrollToSection('quick-actions'); return false;">Quick Actions</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+        <!-- Dashboard Header with Background Image -->
+        <div class="dashboard-header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Insurance Agent Dashboard</h1>
+                    <p id="user-name">Loading...</p>
+                </div>
+                <div class="user-info">
+                    <span id="user-role" class="badge badge-agent">Agent</span>
+                    <button id="logout-btn" class="btn btn-secondary btn-logout-agent">
+                        <span class="btn-label">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Pending Reviews -->
+            <section id="pending-reviews" style="margin-bottom: 2rem;">
+                <h2 style="margin-bottom: 1rem;">Application Statistics</h2>
+            </section>
+            <!-- Dashboard Stats -->
+            <section id="dashboard-stats" style="margin-bottom: 2rem;">
+                <!-- Stats will be loaded dynamically -->
+            </section>
+
+
+            <!-- Quick Actions -->
+            <section class="quick-actions" id="quick-actions">
+                <h2 style="margin-bottom: 1rem;">Quick Actions</h2>
+                <div class="tile-grid">
+                    <a href="#review-loans" class="tile grass-bg" onclick="showLoanReviews(); return false;">
+                        <img src="assets/images/loan-icon.png" alt="Review Loans" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Review Loans</div>
+                        <div class="tile-description">Approve or reject loan applications</div>
+                    </a>
+                    <a href="#reviewed-loans" class="tile grass-bg" onclick="showReviewedLoans(); return false;">
+                        <img src="assets/images/loan-icon.png" alt="Reviewed Loans" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Reviewed Loans</div>
+                        <div class="tile-description">View approved & rejected loans</div>
+                    </a>
+                    <a href="#review-policies" class="tile grass-bg" onclick="showPolicyReviews(); return false;">
+                        <img src="assets/images/insurance-icon.png" alt="Review Policies" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Review Policies</div>
+                        <div class="tile-description">Approve insurance policy applications</div>
+                    </a>
+                    <a href="#review-claims" class="tile grass-bg" onclick="showClaimReviews(); return false;">
+                        <img src="assets/images/claim-icon.png" alt="Review Claims" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">Review Claims</div>
+                        <div class="tile-description">Process and approve claims</div>
+                    </a>
+                    <a href="#view-farmers" class="tile grass-bg" onclick="showFarmers(); return false;">
+                        <img src="assets/images/farmer-icon.png" alt="View Farmers" class="tile-icon-img"
+                            onerror="this.style.display='none';">
+                        <div class="tile-title">View Farmers</div>
+                        <div class="tile-description">Manage farmer portfolios</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Review Sections (Hidden by default) -->
+            <section id="loan-reviews-section" style="display: none;">
+                <div class="card">
+                    <h2>Loan Applications Review</h2>
+                    <div id="loan-reviews-list">
+                        <!-- Will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="claim-reviews-section" style="display: none;">
+                <div class="card">
+                    <h2>Claims Review</h2>
+                    <div id="claim-reviews-list">
+                        <!-- Will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/seed-data.js"></script>
+        <script src="js/common.js"></script>
+        <script>
+            function showLoanReviews() {
+                document.getElementById('loan-reviews-section').style.display = 'block';
+                document.getElementById('claim-reviews-section').style.display = 'none';
+                loadLoanReviews();
+            }
+
+            function showPolicyReviews() {
+                const policies = JSON.parse(localStorage.getItem('policies') || '[]')
+                    .filter(policy => policy.status === 'pending');
+
+                showAlert(`Found ${policies.length} pending policy applications for review.`, 'info');
+            }
+
+            async function showReviewedLoans() {
+                document.getElementById('loan-reviews-section').style.display = 'block';
+                document.getElementById('claim-reviews-section').style.display = 'none';
+
+                const container = document.getElementById('loan-reviews-list');
+                container.innerHTML = '<p>Loading reviewed loans...</p>';
+
+                try {
+                    const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+                    if (!token) {
+                        container.innerHTML = '<p>Please login to view reviewed loans</p>';
+                        return;
+                    }
+
+                    const response = await fetch('http://localhost:3000/api/loans', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (!result.success) {
+                        container.innerHTML = `<p>Error: ${result.message}</p>`;
+                        return;
+                    }
+
+                    // Filter only approved and rejected loans
+                    const loans = result.data.filter(loan => loan.status === 'approved' || loan.status === 'rejected');
+
+                    if (loans.length === 0) {
+                        container.innerHTML = '<h2>Reviewed Loans</h2><p>No reviewed loans found</p>';
+                        return;
+                    }
+
+                    container.innerHTML = `
+                        <h2>Reviewed Loans (${loans.length})</h2>
+                        ${loans.map(loan => `
+                        <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid ${loan.status === 'approved' ? '#28a745' : '#dc3545'};">
+                            <h3 style="margin-bottom: 1rem;">
+                                ${loan.firstName} ${loan.lastName} 
+                                <span class="badge" style="background: ${loan.status === 'approved' ? '#28a745' : '#dc3545'}; color: white; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; font-size: 0.8rem;">${loan.status}</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="margin-bottom: 0.5rem; color: #333;">Personal Details</h4>
+                                    <p><strong>Name:</strong> ${loan.firstName} ${loan.middleName || ''} ${loan.lastName}</p>
+                                    <p><strong>ID Type:</strong> ${loan.identityType?.toUpperCase() || 'N/A'}</p>
+                                    <p><strong>ID Number:</strong> ${loan.identityNumber || 'N/A'}</p>
+                                </div>
+                                
+                                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="margin-bottom: 0.5rem; color: #333;">Bank Details</h4>
+                                    <p><strong>Bank:</strong> ${loan.bankName || 'N/A'}</p>
+                                    <p><strong>Account:</strong> ${loan.accountNumber || 'N/A'}</p>
+                                    <p><strong>IFSC:</strong> ${loan.ifscCode || 'N/A'}</p>
+                                </div>
+                                
+                                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="margin-bottom: 0.5rem; color: #333;">Farm Details</h4>
+                                    <p><strong>Farm Area:</strong> ${loan.farmArea || 'N/A'} acres</p>
+                                    <p><strong>Crop:</strong> ${loan.cropType || 'N/A'}</p>
+                                    <p><strong>Location:</strong> ${loan.landLocation || 'N/A'}</p>
+                                </div>
+                                
+                                <div style="background: ${loan.status === 'approved' ? '#e8f5e9' : '#ffebee'}; padding: 1rem; border-radius: 8px;">
+                                    <h4 style="margin-bottom: 0.5rem; color: #333;">Loan Details</h4>
+                                    <p><strong>Amount:</strong> ₹${loan.loanAmount?.toLocaleString() || 'N/A'}</p>
+                                    <p><strong>Purpose:</strong> ${loan.purpose || 'N/A'}</p>
+                                    <p><strong>Tenure:</strong> ${loan.loanTenure || 'N/A'} months</p>
+                                    <p><strong>EMI:</strong> ₹${loan.monthlyEMI?.toLocaleString() || 'N/A'}</p>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-top: 1rem; color: #666;"><strong>Applied:</strong> ${new Date(loan.createdAt).toLocaleDateString()}</p>
+                            ${loan.comments ? `<p style="margin-top: 0.5rem;"><strong>Comments:</strong> ${loan.comments}</p>` : ''}
+                        </div>
+                    `).join('')}
+                    `;
+                } catch (error) {
+                    console.error('Error loading reviewed loans:', error);
+                    container.innerHTML = `<p>Error loading reviewed loans: ${error.message}</p>`;
+                }
+            }
+
+            function showClaimReviews() {
+                document.getElementById('claim-reviews-section').style.display = 'block';
+                document.getElementById('loan-reviews-section').style.display = 'none';
+                loadClaimReviews();
+            }
+
+            function showFarmers() {
+                const users = JSON.parse(localStorage.getItem('mockUsers') || '[]');
+                const farmers = users.filter(user => user.role === 'farmer');
+
+                const section = document.getElementById('loan-reviews-section');
+                if (section) {
+                    section.style.display = 'block';
+                    const container = document.getElementById('loan-reviews-list');
+                    container.innerHTML = `
+                        <h2>Farmers List (${farmers.length})</h2>
+                        ${farmers.length === 0 ? '<p>No farmers found</p>' : ''}
+                        ${farmers.map(farmer => `
+                            <div class="card" style="margin-bottom: 1rem;">
+                                <h3>${farmer.name}</h3>
+                                <p><strong>Email:</strong> ${farmer.email}</p>
+                                <p><strong>Phone:</strong> ${farmer.phone || 'N/A'}</p>
+                                <p><strong>Registered:</strong> ${new Date().toLocaleDateString()}</p>
+                            </div>
+                        `).join('')}
+                    `;
+                }
+            }
+
+            async function loadLoanReviews() {
+                const container = document.getElementById('loan-reviews-list');
+                container.innerHTML = '<p>Loading pending loans...</p>';
+
+                try {
+                    const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+                    if (!token) {
+                        container.innerHTML = '<p>Please login to view pending loans</p>';
+                        return;
+                    }
+
+                    const response = await fetch('http://localhost:3000/api/loans/pending', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    const result = await response.json();
+
+                    if (!result.success) {
+                        container.innerHTML = `<p>Error: ${result.message}</p>`;
+                        return;
+                    }
+
+                    const loans = result.data;
+
+                    if (loans.length === 0) {
+                        container.innerHTML = '<p>No pending loan applications</p>';
+                        return;
+                    }
+
+                    container.innerHTML = loans.map(loan => `
+                    <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid #ffc107;">
+                        <h3 style="margin-bottom: 1rem;">Loan Application - ${loan.firstName} ${loan.lastName}</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                            <!-- Personal Details -->
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin-bottom: 0.5rem; color: #333;">Personal Details</h4>
+                                <p><strong>Name:</strong> ${loan.firstName} ${loan.middleName || ''} ${loan.lastName}</p>
+                                <p><strong>ID Type:</strong> ${loan.identityType?.toUpperCase() || 'N/A'}</p>
+                                <p><strong>ID Number:</strong> ${loan.identityNumber || 'N/A'}</p>
+                            </div>
+                            
+                            <!-- Bank Details -->
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin-bottom: 0.5rem; color: #333;">Bank Details</h4>
+                                <p><strong>Account Holder:</strong> ${loan.accountHolderName || 'N/A'}</p>
+                                <p><strong>Bank:</strong> ${loan.bankName || 'N/A'}</p>
+                                <p><strong>Branch:</strong> ${loan.branchName || 'N/A'}</p>
+                                <p><strong>Account No:</strong> ${loan.accountNumber || 'N/A'}</p>
+                                <p><strong>IFSC:</strong> ${loan.ifscCode || 'N/A'}</p>
+                                <p><strong>Account Type:</strong> ${loan.accountType?.toUpperCase() || 'N/A'}</p>
+                            </div>
+                            
+                            <!-- Land & Farm Details -->
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin-bottom: 0.5rem; color: #333;">Farm Details</h4>
+                                <p><strong>Farm Area:</strong> ${loan.farmArea || 'N/A'} acres</p>
+                                <p><strong>Crop Type:</strong> ${loan.cropType || 'N/A'}</p>
+                                <p><strong>Location:</strong> ${loan.landLocation || 'N/A'}</p>
+                                <p><strong>Annual Income:</strong> ₹${loan.annualIncome?.toLocaleString() || 'N/A'}</p>
+                            </div>
+                            
+                            <!-- Loan Details -->
+                            <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px;">
+                                <h4 style="margin-bottom: 0.5rem; color: #333;">Loan Details</h4>
+                                <p><strong>Amount:</strong> ₹${loan.loanAmount?.toLocaleString() || 'N/A'}</p>
+                                <p><strong>Purpose:</strong> ${loan.purpose || 'N/A'}</p>
+                                <p><strong>Tenure:</strong> ${loan.loanTenure || 'N/A'} months</p>
+                                <p><strong>Monthly EMI:</strong> ₹${loan.monthlyEMI?.toLocaleString() || 'Calculating...'}</p>
+                                <p><strong>Interest Rate:</strong> ${loan.interestRate || '8.5'}%</p>
+                                ${loan.purposeDescription ? `<p><strong>Description:</strong> ${loan.purposeDescription}</p>` : ''}
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 1rem; color: #666;"><strong>Applied:</strong> ${new Date(loan.createdAt).toLocaleDateString()} at ${new Date(loan.createdAt).toLocaleTimeString()}</p>
+                        
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd;">
+                            <button class="btn btn-primary" onclick="approveLoan('${loan._id}')">Approve</button>
+                            <button class="btn btn-secondary" onclick="rejectLoan('${loan._id}')" style="margin-left: 1rem;">Reject</button>
+                        </div>
+                    </div>
+                `).join('');
+                } catch (error) {
+                    console.error('Error loading loans:', error);
+                    container.innerHTML = `<p>Error loading loans: ${error.message}</p>`;
+                }
+            }
+
+            async function approveLoan(loanId) {
+                try {
+                    const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+                    if (!token) {
+                        showAlert('Please login to approve loans', 'error');
+                        return;
+                    }
+
+                    const response = await fetch(`http://localhost:3000/api/loans/${loanId}/status`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            status: 'approved',
+                            comments: 'Approved by agent'
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        showAlert('Loan approved successfully!', 'success');
+                        loadLoanReviews();
+                    } else {
+                        showAlert(`Error: ${result.message}`, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error approving loan:', error);
+                    showAlert(`Error approving loan: ${error.message}`, 'error');
+                }
+            }
+
+            async function rejectLoan(loanId) {
+                try {
+                    const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+                    if (!token) {
+                        showAlert('Please login to reject loans', 'error');
+                        return;
+                    }
+
+                    const response = await fetch(`http://localhost:3000/api/loans/${loanId}/status`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            status: 'rejected',
+                            comments: 'Rejected by agent'
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        showAlert('Loan rejected', 'success');
+                        loadLoanReviews();
+                    } else {
+                        showAlert(`Error: ${result.message}`, 'error');
+                    }
+                } catch (error) {
+                    console.error('Error rejecting loan:', error);
+                    showAlert(`Error rejecting loan: ${error.message}`, 'error');
+                }
+            }
+
+            function loadClaimReviews() {
+                const claims = JSON.parse(localStorage.getItem('claims') || '[]')
+                    .filter(claim => claim.status === 'pending');
+
+                const container = document.getElementById('claim-reviews-list');
+                if (claims.length === 0) {
+                    container.innerHTML = '<p>No pending claims</p>';
+                    return;
+                }
+
+                container.innerHTML = claims.map(claim => `
+                <div class="card" style="margin-bottom: 1rem;">
+                    <h3>Claim ${claim.id}</h3>
+                    <p><strong>Policy ID:</strong> ${claim.policyId}</p>
+                    <p><strong>Claim Type:</strong> ${claim.claimType}</p>
+                    <p><strong>Description:</strong> ${claim.description}</p>
+                    <p><strong>Claimed Amount:</strong> ₹${claim.claimedAmount?.toLocaleString() || 'N/A'}</p>
+                    <div style="margin-top: 1rem;">
+                        <button class="btn btn-primary" onclick="approveClaim('${claim.id}')">Approve</button>
+                        <button class="btn btn-secondary" onclick="rejectClaim('${claim.id}')" style="margin-left: 1rem;">Reject</button>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            function approveClaim(claimId) {
+                const claims = JSON.parse(localStorage.getItem('claims') || '[]');
+                const claim = claims.find(c => c.id === claimId);
+                if (claim) {
+                    claim.status = 'approved';
+                    claim.reviewedBy = JSON.parse(localStorage.getItem('currentUser')).id;
+                    localStorage.setItem('claims', JSON.stringify(claims));
+                    showAlert('Claim approved successfully!', 'success');
+                    loadClaimReviews();
+                }
+            }
+
+            function rejectClaim(claimId) {
+                const claims = JSON.parse(localStorage.getItem('claims') || '[]');
+                const claim = claims.find(c => c.id === claimId);
+                if (claim) {
+                    claim.status = 'rejected';
+                    claim.reviewedBy = JSON.parse(localStorage.getItem('currentUser')).id;
+                    localStorage.setItem('claims', JSON.stringify(claims));
+                    showAlert('Claim rejected', 'success');
+                    loadClaimReviews();
+                }
+            }
+
+            // Load agent dashboard stats
+            async function loadAgentDashboardStats() {
+                const statsContainer = document.getElementById('dashboard-stats');
+                if (!statsContainer) return;
+
+                statsContainer.innerHTML = `
+                    <div class="tile-grid">
+                        <div class="tile"><div class="tile-title">Loading...</div></div>
+                    </div>
+                `;
+
+                try {
+                    const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+                    let loans = [];
+                    let pendingLoans = 0;
+
+                    if (token) {
+                        try {
+                            const response = await fetch('http://localhost:3000/api/loans', {
+                                headers: {
+                                    'Authorization': `Bearer ${token}`
+                                }
+                            });
+                            const result = await response.json();
+                            if (result.success) {
+                                loans = result.data;
+                                pendingLoans = loans.filter(l => l.status === 'pending').length;
+                            }
+                        } catch (error) {
+                            console.error('Error fetching loans:', error);
+                        }
+                    }
+
+                    const claims = JSON.parse(localStorage.getItem('claims') || '[]');
+                    const pendingClaims = claims.filter(c => c.status === 'pending').length;
+
+                    statsContainer.innerHTML = `
+                        <div class="tile-grid">
+                            <div class="tile">
+                                <img src="assets/images/loan-icon.png" alt="Pending Loans" class="tile-icon-img" onerror="this.style.display='none';">
+                                <div class="tile-title">Pending Loans</div>
+                                <div class="tile-description">${pendingLoans}</div>
+                            </div>
+                            <div class="tile">
+                                <img src="assets/images/claim-icon.png" alt="Pending Claims" class="tile-icon-img" onerror="this.style.display='none';">
+                                <div class="tile-title">Pending Claims</div>
+                                <div class="tile-description">${pendingClaims}</div>
+                            </div>
+                            <div class="tile">
+                                <img src="assets/images/loan-icon.png" alt="Total Loans" class="tile-icon-img" onerror="this.style.display='none';">
+                                <div class="tile-title">Total Loans</div>
+                                <div class="tile-description">${loans.length}</div>
+                            </div>
+                            <div class="tile">
+                                <img src="assets/images/claim-icon.png" alt="Total Claims" class="tile-icon-img" onerror="this.style.display='none';">
+                                <div class="tile-title">Total Claims</div>
+                                <div class="tile-description">${claims.length}</div>
+                            </div>
+                        </div>
+                    `;
+                } catch (error) {
+                    console.error('Error loading dashboard stats:', error);
+                    statsContainer.innerHTML = `
+                        <div class="tile-grid">
+                            <div class="tile"><div class="tile-title">Error loading stats</div></div>
+                        </div>
+                    `;
+                }
+            }
+
+            // Load pending items on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                loadAgentDashboardStats();
+                loadLoanReviews();
+                loadClaimReviews();
+            });
+        </script>
+    </main>
+</body>
+
+</html>
